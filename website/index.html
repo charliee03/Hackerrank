@@ -10,7 +10,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/c.min.js"></script>
 </head>
 <body>
-    <div class="container">
+    <!-- Password Protection Overlay -->
+    <div id="passwordOverlay" class="overlay">
+        <div class="password-container">
+            <h2>Enter Password</h2>
+            <input type="password" id="passwordInput" placeholder="Enter password">
+            <button onclick="checkPassword()">Submit</button>
+            <p id="errorMessage" class="error-message"></p>
+        </div>
+    </div>
+
+    <div class="container" id="mainContent" style="display: none;">
         <header>
             <h1>My HackerRank Solutions</h1>
             <p>Click on a solution name to view the code, and use the copy button to copy the code to clipboard.</p>

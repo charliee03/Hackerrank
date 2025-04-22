@@ -1,6 +1,9 @@
 // Global variables
 let allSolutions = [];
 
+// Password protection
+const CORRECT_PASSWORD = "iqbalkhalid123"; // Change this to your desired password
+
 // Load solutions from JSON file
 async function loadSolutions() {
     try {
@@ -116,8 +119,50 @@ function handleSearch() {
     });
 }
 
+// Check if already authenticated
+window.onload = function() {
+    const isAuthenticated = sessionStorage.getItem('authenticated');
+    const passwordOverlay = document.getElementById('passwordOverlay');
+    const mainContent = document.getElementById('mainContent');
+
+    if (isAuthenticated === 'true') {
+        passwordOverlay.style.display = 'none';
+        mainContent.style.display = 'block';
+    } else {
+        passwordOverlay.style.display = 'flex';
+        mainContent.style.display = 'none';
+    }
+};
+
+// Allow Enter key to submit password
+document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        checkPassword();
+    }
+});
+
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
     loadSolutions();
     handleSearch();
-}); 
+});
+
+function checkPassword() {
+    const passwordInput = document.getElementById('passwordInput');
+    const errorMessage = document.getElementById('errorMessage');
+    const passwordOverlay = document.getElementById('passwordOverlay');
+    const mainContent = document.getElementById('mainContent');
+
+    if (passwordInput.value === CORRECT_PASSWORD) {
+        // Correct password
+        passwordOverlay.style.display = 'none';
+        mainContent.style.display = 'block';
+        // Store in sessionStorage to remember during the session
+        sessionStorage.setItem('authenticated', 'true');
+    } else {
+        // Incorrect password
+        errorMessage.textContent = 'Incorrect password. Please try again.';
+        errorMessage.style.display = 'block';
+        passwordInput.value = '';
+    }
+} 
