@@ -16,7 +16,7 @@ This repository contains my solutions to various HackerRank problems in C, along
 
 1. Clone the repository:
    ```bash
-   git clone [your-repo-url]
+   git clone https://github.com/charliee03/Hackerrank.git
    cd hackerrank
    ```
 
@@ -35,7 +35,7 @@ This repository contains my solutions to various HackerRank problems in C, along
 
 ## Deployment
 
-This website is deployed on Vercel. Visit [your-vercel-url] to see it live.
+This website is deployed on Vercel. After you complete the Vercel deployment, update this URL with your Vercel deployment URL.
 
 ## Features
 
