@@ -1,4 +1,12 @@
 {
   "version": 2,
-  "outputDirectory": "website"
-} 
+  "builds": [
+    { "src": "website/*.html",   "use": "@vercel/static" },
+    { "src": "website/*.css",    "use": "@vercel/static" },
+    { "src": "website/*.js",     "use": "@vercel/static" },
+    { "src": "website/solutions.json", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/website/$1" }
+  ]
+}
