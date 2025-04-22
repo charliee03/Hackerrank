@@ -20,17 +20,17 @@ def read_solutions(directory):
     solutions.sort(key=lambda x: x['name'])
     
     # Write to a JSON file
-    with open('hackerrank/website/solutions.json', 'w', encoding='utf-8') as f:
+    with open('website/solutions.json', 'w', encoding='utf-8') as f:
         json.dump(solutions, f, indent=2)
     
     print(f"Generated JSON data with {len(solutions)} solutions")
 
 if __name__ == "__main__":
     # Path to your hackerrank solutions folder
-    solutions_path = "hackerrank/solutions"
+    solutions_path = "solutions"
     
     # Create website directory if it doesn't exist
-    os.makedirs("hackerrank/website", exist_ok=True)
+    os.makedirs("website", exist_ok=True)
     
     read_solutions(solutions_path)
-    print("Done! JSON file created at: hackerrank/website/solutions.json") 
+    print("Done! JSON file created at: website/solutions.json") 
