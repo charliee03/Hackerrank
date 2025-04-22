@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f7fc;
+    padding-bottom: 50px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: #2962ff;
+    margin-bottom: 10px;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #2962ff;
+}
+
+.solutions-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.solution-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.solution-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.solution-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+}
+
+.solution-title {
+    cursor: pointer;
+    color: #2962ff;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.solution-title:hover {
+    color: #1565c0;
+}
+
+.copy-btn {
+    background-color: #2962ff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.copy-btn:hover {
+    background-color: #1565c0;
+}
+
+.code-container {
+    display: none;
+    padding: 0;
+    border-top: 1px solid #eee;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.code-container.show {
+    display: block;
+}
+
+pre {
+    margin: 0;
+    padding: 15px;
+    overflow-x: auto;
+    tab-size: 4;
+}
+
+code {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+
+.loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #666;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .solutions-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .solution-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+} 
